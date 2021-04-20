@@ -1,0 +1,108 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: $white;
+}
+
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  color: $white;
+  font-size: 16px; //this defines what 1 rem is
+
+  @include respond(trenta) {
+    font-size: 95%;
+  }
+  @include respond(venti-with-sugar) {
+    font-size: 92%;
+  }
+  @include respond(venti) {
+    font-size: 90%;
+  }
+  @include respond(grande) {
+    font-size: 88%;
+  }
+  @include respond(short-with-sugar) {
+    font-size: 85%;
+  }
+}
+
+.app {
+  position: relative;
+  background-color: #070722b8;
+  min-height: 100vh;
+
+  & > h2 {
+    position: absolute;
+    left: 50%;
+    top: 1rem;
+    transform: translate(-50%);
+    color: $primary;
+  }
+
+  &:after {
+    content: "";
+    position: fixed;
+    z-index: -2;
+    top: -100%;
+    left: -50%;
+    height: 300%;
+    width: 300%;
+    background-image: url("../../assets/tactile_noise.png");
+    opacity: 1;
+    animation: grain 8s steps(10) infinite;
+  }
+}
+
+.app-logo {
+  position: fixed;
+  height: auto;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+
+  & > h1 {
+    width: 100%;
+    font-size: 4rem;
+    text-transform: uppercase;
+
+    &:first-of-type {
+      text-align: left;
+      font-size: 22vw;
+      font-weight: 400;
+    }
+
+    &:nth-of-type(2) {
+      text-align: right;
+      font-size: 13vw;
+      font-weight: 100;
+      margin-top: -2rem;
+    }
+  }
+  // & > h2 {
+
+  //   padding: 3rem 0;
+  //   font-size: 3rem;
+  //   text-align: left;
+  // }
+}

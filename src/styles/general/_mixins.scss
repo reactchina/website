@@ -1,0 +1,100 @@
+//Sizes are chosen based on coffee cups' size!
+// short > tall > grande > venti > trenta > depth-charge
+// in addition I use -with-sugar > -with-room for extra queries!
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == short {
+    @media only screen and (max-width: 26.5625em) {
+      @content;
+    }
+  }
+  @if $breakpoint == short-with-sugar {
+    @media only screen and (max-width: 32em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tall {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == grande {
+    @media only screen and (max-width: 48em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == venti {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == venti-with-sugar {
+    @media only screen and (max-width: 64em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == trenta {
+    @media only screen and(max-width: 75em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == depth-charge {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == depth-charge-with-sugar {
+    @media only screen and (min-width: 160em) {
+      @content;
+    }
+  }
+}
+
+@mixin outlined-text($color) {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: $color;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin sideway-text($rotationDeg) {
+  transform: rotate($rotationDeg);
+  text-orientation: sideways-right;
+  writing-mode: vertical-rl;
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1.1);
+  }
+  10% {
+    transform: translate(-5%, -10%) scale(1.1);
+  }
+  20% {
+    transform: translate(-15%, 5%) scale(1.1);
+  }
+  30% {
+    transform: translate(7%, -25%) scale(1.1);
+  }
+  40% {
+    transform: translate(-5%, 25%) scale(1.1);
+  }
+  50% {
+    transform: translate(-15%, 10%) scale(1.1);
+  }
+  60% {
+    transform: translate(15%, 0%) scale(1.1);
+  }
+  70% {
+    transform: translate(0%, 15%) scale(1.1);
+  }
+  80% {
+    transform: translate(3%, 35%) scale(1.1);
+  }
+}
